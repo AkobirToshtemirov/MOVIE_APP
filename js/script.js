@@ -5,11 +5,15 @@ const baseURL = 'https://api.themoviedb.org/3';
 const API_url =  baseURL +'/discover/movie?sort_by=popularity.desc&' + API_key;
 const img_url = 'https://image.tmdb.org/t/p/w500'
 
+//search Information
+
+const search_url = baseURL + '/search/movie?'+ API_key;
+
 // HTML DOM main
 
 const mainTag = document.querySelector('#main .container')
 const formInput = document.querySelector('#form')
-const searchBtn = document.querySelector
+const search = document.querySelector('.search')
 
 getMovie(API_url)
 
@@ -59,4 +63,11 @@ function getColor(vote) {
   }
 }
 
+formInput.addEventListener('submit', (e) => {
+  e.preventDefault();
 
+  const searchTerm = search.value;
+  if(searchTerm) {
+    getMovie(search_url + '&query=' + searchTerm)
+  }
+})
