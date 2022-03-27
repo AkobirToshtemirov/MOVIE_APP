@@ -137,6 +137,10 @@ header .container {
   .container {
     width: 100%;
   }
+
+  header {
+    padding: 0.5rem;
+  }
 }
 
 @media screen and (max-width:665px) {
@@ -155,10 +159,6 @@ header .container {
 
   .search {
     width: 170px !important;
-  }
-
-  header .container {
-    width: 90%;
   }
 
 }
