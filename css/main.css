@@ -151,7 +151,7 @@ header .container {
   }
 }
 
-@media screen and (max-width:310px) {
+@media screen and (max-width:325px) {
   .logo a img {
     width: 70px;
     height: 55px;
