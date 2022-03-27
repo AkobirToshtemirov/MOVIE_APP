@@ -42,7 +42,14 @@ header .container {
   width: 100%;
 }
 
+form {
+  width: 240px;
+}
+
+
+
 .search {
+  width: 100%;
   background-color: transparent;
   border: 2px solid var(--primaryColor);
   padding: 0.5rem 1rem;
@@ -157,15 +164,14 @@ header .container {
     height: 55px;
   }
 
-  .search {
-    width: 170px !important;
+  form {
+    width: 170px;
   }
 
 }
 
 @media screen and (max-width:260px) {
-  .search {
-    width: 100px !important;
-    background-color: red;
+  form {
+    width: 100px;
   }
 }
