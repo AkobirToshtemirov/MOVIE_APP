@@ -155,5 +155,6 @@ header .container {
 
   .search {
     width: 170px;
+    background-color: red;
   }
 }
