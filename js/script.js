@@ -33,7 +33,8 @@ function showMovies(data) {
 
   data.forEach(movie => {
     const {title, poster_path, vote_average, overview} = movie
-
+    const link = document.createElement('a')
+    link.setAttribute('href', `/page/movies.html`)
     const movieElem = document.createElement('div');
     movieElem.classList.add('movie');
     movieElem.innerHTML = `
@@ -48,8 +49,13 @@ function showMovies(data) {
       ${overview}
     </div>
     `
+    link.appendChild(movieElem)
+    mainTag.appendChild(link)
+    movieElem.addEventListener('click', () => {
+      localStorage.setItem('filmID', movie.id)
+    })
 
-    mainTag.appendChild(movieElem)
+
   });
 }
 
@@ -71,3 +77,4 @@ formInput.addEventListener('submit', (e) => {
     getMovie(search_url + '&query=' + searchTerm)
   }
 })
+
