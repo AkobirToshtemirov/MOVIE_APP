@@ -155,10 +155,10 @@ header .container {
 
   .search {
     width: 170px !important;
-    margin-right: 5px;
   }
 
-  .header .container {
-    width: 90% !important;
+  header .container {
+    width: 90%;
   }
+
 }
