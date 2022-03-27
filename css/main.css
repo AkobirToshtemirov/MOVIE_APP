@@ -146,3 +146,14 @@ header .container {
     margin: 20px auto;
   }
 }
+
+@media screen and (max-width:310px) {
+  .logo a img {
+    width: 70px;
+    height: 55px;
+  }
+
+  input {
+    width: 170px;
+  }
+}
