@@ -132,6 +132,8 @@ form {
   max-height: 100%;
   transform: translateY(100%);
   transition: 0.5s ease;
+  height: 50%;
+  overflow-y: scroll;
 }
 
 .movie:hover > .overview {
