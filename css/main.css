@@ -154,7 +154,7 @@ header .container {
   }
 
   .search {
-    width: 170px;
+    width: 170px !important;
     margin-right: 5px;
   }
 
