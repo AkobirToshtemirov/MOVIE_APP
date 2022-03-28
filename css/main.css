@@ -94,6 +94,7 @@ form {
 main .container a {
   text-decoration: none;
   margin: 1rem 0;
+  overflow: hidden;
 }
 
 .movie {
@@ -194,6 +195,7 @@ main .container a {
   padding: 10px 0;
   cursor: pointer;
   overflow: hidden;
+  border: none;
 }
 
 .watchNow:hover > svg {
