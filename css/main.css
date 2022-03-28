@@ -17,8 +17,25 @@ body {
   background-color: var(--primaryColor);
 }
 
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: rgb(255, 208, 0);
+  border-radius: 10px;
+}
+
+
 header {
-  padding: 1rem 0;
+  padding: 0.5rem;
   background-color: var(--secondaryColor);
 }
 
@@ -106,6 +123,7 @@ main .container a {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.438);
 }
 
 .movieInfo h3 {
@@ -156,7 +174,7 @@ main .container a {
 
 /* Handle */
 .overview::-webkit-scrollbar-thumb {
-  background: rgb(55, 0, 255);
+  background: rgb(38, 0, 255);
   border-radius: 10px;
 }
 
@@ -165,26 +183,58 @@ main .container a {
   transition: 0.5s ease;
 }
 
+.watchNow {
+  width: 100%;
+  color: #fff;
+  font-weight: 700;
+  background-color: rgb(255, 208, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.watchNow:hover > svg {
+  animation: right 1s ease infinite;
+}
+
+@keyframes right {
+  100% {
+    transform: translateX(400%);
+    transition: 1s ease;
+  }
+}
 
 @media screen and (max-width:1200px) {
   .container {
     width: 100%;
+    padding: 10px;
   }
 
   header {
-    padding: 0.5rem;
+    padding: 0;
   }
 }
 
-@media screen and (max-width:665px) {
+@media screen and (max-width:590px) {
 
-  .movie {
-    width: 90%;
+  main .container {
+    padding: 10px 20px;
+  }
+
+  main .container a{
+    width: 100%;
     margin: 20px auto;
   }
+
+  main .container a .movie {
+    width: 100%;
+  }
 }
 
-@media screen and (max-width:325px) {
+@media screen and (max-width:365px) {
   .logo a img {
     width: 70px;
     height: 55px;
@@ -196,7 +246,7 @@ main .container a {
 
 }
 
-@media screen and (max-width:260px) {
+@media screen and (max-width:300px) {
   form {
     width: 100px;
   }
