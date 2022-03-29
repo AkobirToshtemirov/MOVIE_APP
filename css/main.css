@@ -207,6 +207,11 @@ main .container a {
   -webkit-animation: right 1.5s ease infinite;
 }
 
+.movie img {
+  width: 280px;
+  height: 400px;
+}
+
 @keyframes right {
   100% {
     transform: translateX(800%);
@@ -266,3 +271,5 @@ main .container a {
     width: 100px;
   }
 }
+
+
