@@ -18,7 +18,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 15px;
+  width: 11px;
 }
 
 /* Track */
@@ -186,7 +186,7 @@ main .container a {
 
 .watchNow {
   width: 100%;
-  color: #fff;
+  color: rgb(38, 0, 255);
   font-weight: 700;
   background-color: rgb(255, 208, 0);
   display: flex;
@@ -196,6 +196,10 @@ main .container a {
   cursor: pointer;
   overflow: hidden;
   border: none;
+}
+
+.watchNow svg {
+  fill: rgb(38, 0, 255);
 }
 
 .watchNow:hover > svg {

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch</title>
+    <title class="titleMain"></title>
 
-    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/movies.css">
+    <link rel="stylesheet" href="../css/main.css">
+
 </head>
 <body>
 
@@ -26,12 +27,13 @@
         </div>
     </header>
 
-    <br>
+    <!-- <br>
+    <br> -->
     
     <div class="mainOfInfo">
         <div class="mainInfo">
-            <div class="container">
-                <img class="filmIDimg" src="" alt="">
+            <div class="container response">
+                <!-- <img class="filmIDimg" src="" alt="">
 
                 <div class="textInfo">
                     <h1></h1>
@@ -39,13 +41,13 @@
                     <p class="genre"></p>
     
                     <h3>overview</h3>
-                    <p class="overviewText"></p>\
+                    <p class="overviewText"></p>
     
                     <br>
                     <button class="watchBtn">
                         <svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg"><path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"></path></svg>
                         Watch Trial
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -77,42 +79,7 @@
     </div>
 
 
-    <script>
-        fetch(`https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            console.log(arreyMovie.backdrop_path);
-        })
-
-        let arreyMovie = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
-        const img_url = 'https://image.tmdb.org/t/p/w500'
-        // const {backdrop_path,}
-        // HTML DOM 
-        const mainInfo = document.querySelector('.mainInfo .container')
-        const mainBackgroundImg =  document.querySelector('.mainInfo')
-
-        mainBackgroundImg.style.backgroundImage = `url("${img_url + arreyMovie.backdrop_path}")`
-
-        mainInfo.innerHTML = `
-        <img class="filmIDimg" src="" alt="">
-
-            <div class="textInfo">
-              <h1></h1>
-
-      <p class="genre"></p>
-
-         <h3>overview</h3>
-        <p class="overviewText"></p>\
-
-        <br>
-    <button class="watchBtn">
-        <svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg"><path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"></path></svg>
-        Watch Trial
-    </button>
-        `
-
-    </script>
+    <script src="../js/movies.js"></script>
 
 </body>
 </html>
