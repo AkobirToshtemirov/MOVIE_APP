@@ -28,8 +28,11 @@ function getMains(links) {
 
 function showEachMovie(data) {
   mainInfo.innerHTML = ``
-  
+
      const {title, vote_average, release_date, poster_path, backdrop_path, id, original_language, overview, genres} = data
+
+     let genresTarget = genres.map(genre => genre.name)
+     console.log(genresTarget);
 
      mainBackgroundImg.style.backgroundImage = `url('${img_url + backdrop_path}')`
      titleMain.innerText = title
@@ -43,9 +46,7 @@ function showEachMovie(data) {
       <div class="moreInfo">
         <span class="rank">${vote_average}</span>
         <p class="date">${release_date}</p>       
-        ${genres.map(genre => {
-          return `<p>${genre.name}</p>`
-        })}
+        ${genresTarget.map(genre => `<p>${genre}</p>`)}
       </div>
 
 
