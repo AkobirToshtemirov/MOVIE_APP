@@ -43,9 +43,9 @@ function showEachMovie(data) {
       <div class="moreInfo">
         <span class="rank">${vote_average}</span>
         <p class="date">${release_date}</p>       
-        <p class="genre">${genres[0].name}</p>
-        <p class="genre">${genres[1].name}</p>
-        <p class="genre">${genres[2].name}</p>
+        ${genres.map(genre => {
+          return `<p>${genre.name}</p>`
+        })}
       </div>
 
 
@@ -61,7 +61,6 @@ function showEachMovie(data) {
   </button>
       </div>
   `
-
 }
 
 

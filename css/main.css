@@ -203,14 +203,23 @@ main .container a {
 }
 
 .watchNow:hover > svg {
-  animation: right 1s ease infinite;
+  animation: right 1.5s ease infinite;
+  -webkit-animation: right 1.5s ease infinite;
 }
 
 @keyframes right {
   100% {
-    transform: translateX(400%);
-    transition: 1s ease;
-  }
+    transform: translateX(800%);
+    transition: 1.5s ease;
+    -webkit-transform: translateX(800%);
+    -moz-transform: translateX(800%);
+    -ms-transform: translateX(800%);
+    -o-transform: translateX(800%);
+    -webkit-transition: 1.5s ease;
+    -moz-transition: 1.5s ease;
+    -ms-transition: 1.5s ease;
+    -o-transition: 1.5s ease;
+}
 }
 
 @media screen and (max-width:1200px) {
