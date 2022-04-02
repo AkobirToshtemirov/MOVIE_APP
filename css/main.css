@@ -231,6 +231,11 @@ main .container a {
   header {
     padding: 0;
   }
+
+  header img {
+    width: 50px;
+    height: 45px;
+  }
 }
 
 @media screen and (max-width:590px) {
@@ -246,6 +251,11 @@ main .container a {
 
   main .container a .movie {
     width: 100%;
+  }
+
+  header .container {
+    padding: 0 10px;
+    padding-top: 5px !important;
   }
 }
 
