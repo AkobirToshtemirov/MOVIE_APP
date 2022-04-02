@@ -27,6 +27,7 @@ function getMains(links) {
 }
 
 function showEachMovie(data) {
+  
   mainInfo.innerHTML = ``
   
      const {title, vote_average, release_date, poster_path, backdrop_path, id, original_language, overview, genres} = data
@@ -41,11 +42,23 @@ function showEachMovie(data) {
       <h1>${title}</h1>
 
       <div class="moreInfo">
+        <div>
+        <div>
+        <span class="whiteSpan">Ranking: </span>
         <span class="rank">${vote_average}</span>
-        <p class="date">${release_date}</p>       
+        </div>
+        <div class="flex">
+        <span class="whiteSpan">Year: </span>
+        <p class="date">${release_date}</p>  
+        </div>
+        </div>     
+
+        <span class="genreSpan">GENRES :</span>
+        <div class="genreDiv">
         ${genres.map(genre => {
           return `<p>${genre.name}</p>`
         })}
+        </div>
       </div>
 
 
@@ -57,11 +70,12 @@ function showEachMovie(data) {
       <div class="btnBlock">
       <button class="watchBtn">
       <svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg"><path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"></path></svg>
-      Watch Trial
+      Watch Trailer
   </button>
       </div>
   `
 }
+
 
 
 
