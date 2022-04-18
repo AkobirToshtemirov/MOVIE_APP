@@ -257,6 +257,11 @@ main .container a {
     padding: 0 10px;
     padding-top: 5px !important;
   }
+  .movie img {
+    height: 350px;
+    object-fit: cover;
+  }
+
 }
 
 @media screen and (max-width:365px) {
