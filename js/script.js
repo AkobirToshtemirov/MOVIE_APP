@@ -35,7 +35,7 @@ function showMovies(data) {
     const {title, poster_path, vote_average, overview} = movie
     const link = document.createElement('a')
     link.setAttribute('href', `/page/movies.html`)
-    link.setAttribute('target', '_blank')
+    // link.setAttribute('target', '_blank')
     const movieElem = document.createElement('div');
     movieElem.classList.add('movie');
     movieElem.innerHTML = `

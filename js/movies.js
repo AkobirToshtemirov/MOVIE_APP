@@ -3,6 +3,7 @@
 const mainInfo = document.querySelector('.mainInfo .container')
 const mainBackgroundImg =  document.querySelector('.mainInfo')
 let titleMain = document.querySelector('.titleMain')
+const actorBlock = document.querySelector('.actorBlock')
 
 // fetch API
 
@@ -74,8 +75,46 @@ function showEachMovie(data) {
   </button>
       </div>
   `
+
+
+}
+
+let actorApi = 'https://api.themoviedb.org/3/movie/675353/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US'
+
+getActorLink(actorApi)
+
+function getActorLink(actorLink) {
+  fetch(actorLink)
+.then(res => res.json())
+.then(actor => {
+  console.log('actors', actor.cast);
+  showActors(actor.cast)
+})
 }
 
 
 
+function showActors(actor) {
+  actorBlock.innerHTML = ``
+
+  // const {original_name, profile_path } = actor.cast
+
+actor.forEach(actors => {
+  
+  let actorBox = document.createElement('div')
+  actorBox.classList.add('actorBox')
+  let actorImg = document.createElement('img')
+  actorImg.classList.add('actorImg')
+  actorImg.setAttribute('src', `${img_url + actors.profile_path}`)
+  actorBox.appendChild(actorImg)
+  let trueName = document.createElement('h3')
+  trueName.innerText = actors.original_name
+  actorBox.appendChild(trueName)
+  
+  actorBlock.appendChild(actorBox)
+});
+
+}
+
+let recommendApi = `https://api.themoviedb.org/3/movie/{}/similar?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US&page=1`
 
