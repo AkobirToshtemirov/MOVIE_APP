@@ -4,6 +4,7 @@ const mainInfo = document.querySelector('.mainInfo .container')
 const mainBackgroundImg =  document.querySelector('.mainInfo')
 let titleMain = document.querySelector('.titleMain')
 const actorBlock = document.querySelector('.actorBlock')
+const recomondBlock = document.querySelector('.recomondBlock')
 
 // fetch API
 
@@ -116,5 +117,30 @@ actor.forEach(actors => {
 
 }
 
-let recommendApi = `https://api.themoviedb.org/3/movie/{}/similar?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US&page=1`
+let recommendApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/similar?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US&page=1`
+
+fetch(recommendApi)
+.then(res => res.json())
+.then(rec => showRec(rec.results))
+
+function showRec (rec) {
+
+  recomondBlock.innerHTML = ``
+  
+  rec.forEach(film => {
+    console.log(film);
+
+    let recBox = document.createElement('div')
+    recBox.classList.add('recBox')
+    let recImg = document.createElement('img')
+    recImg.classList.add('recImg')
+    recImg.setAttribute('src', `${img_url + film.poster_path}`)
+    recBox.appendChild(recImg)
+    
+
+
+    recomondBlock.appendChild(recBox)
+  })
+
+}
 
