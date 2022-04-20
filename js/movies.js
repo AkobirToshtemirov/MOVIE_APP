@@ -124,23 +124,30 @@ fetch(recommendApi)
 .then(rec => showRec(rec.results))
 
 function showRec (rec) {
-
+ 
   recomondBlock.innerHTML = ``
   
   rec.forEach(film => {
-    console.log(film);
+    
 
-    let recBox = document.createElement('div')
+    let recBox = document.createElement('a')
+    recBox.setAttribute('href', `../page/movies.html`)
     recBox.classList.add('recBox')
+    let recDiv = document.createElement('div')
+    recDiv.classList.add('recDiv')
+    recBox.appendChild(recDiv)
     let recImg = document.createElement('img')
     recImg.classList.add('recImg')
     recImg.setAttribute('src', `${img_url + film.poster_path}`)
-    recBox.appendChild(recImg)
-    
-
-
+    recDiv.appendChild(recImg)
     recomondBlock.appendChild(recBox)
+    
+    recBox.addEventListener('click', () => {
+      localStorage.setItem('filmID', film.id)
+    })
+    
   })
 
 }
+
 

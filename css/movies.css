@@ -201,7 +201,56 @@
   color: #fff;
   font-size: 12px;
   font-weight: 500;
+  text-align: center;
 }
+
+.recomodationMain {
+  width: 100%;
+  padding:0 0 30px 0;
+  overflow: hidden;
+}
+
+.recomondBlock {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  padding:10px 0 30px 0;
+ 
+}
+
+.recomondBlock::-webkit-scrollbar {
+  width: 11px;
+  height: 10px;
+}
+
+/* Track */
+.recomondBlock::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  height: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+.recomondBlock::-webkit-scrollbar-thumb {
+  background: rgb(255, 208, 0);
+  border-radius: 10px;
+}
+
+
+.recomondBlock .recDiv{
+  width: 200px;
+  height: 270px;
+  margin-right: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.recomondBlock .recDiv img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 @media screen and (max-width:885px) {
 

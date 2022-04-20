@@ -63,6 +63,8 @@ form {
   width: 240px;
 }
 
+
+
 .movie img {
   width: 250px;
   height: 300px;
@@ -99,7 +101,6 @@ form {
 main .container a {
   text-decoration: none;
   margin: 1rem 0;
-  overflow: hidden;
 }
 
 .movie {
@@ -107,23 +108,26 @@ main .container a {
   border-radius: 3px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   background-color: var(--secondaryColor);
-  overflow: hidden;
   position: relative;
   cursor: pointer;
   border-radius: 10px;
   transition: 0.4s ease;
+  overflow: hidden;
 }
 
 .movie:hover {
-  box-shadow: 0px 10px 20px rgba(204, 204, 204, 0.1);
+  box-shadow: 0px 10px 20px rgba(235, 234, 234, 0.1);
   transition: 0.4s ease;
+  transform: scale3d(0.95, 0.95, 0.95);
 }
 
 .movie img {
   width: 100%;
 }
 
+
 .movieInfo {
+  height: 65px;
   color: #fff;
   display: flex;
   align-items: center;
