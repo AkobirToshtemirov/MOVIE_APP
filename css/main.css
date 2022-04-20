@@ -63,7 +63,12 @@ form {
   width: 240px;
 }
 
+.movie img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
 
+}
 
 .search {
   width: 100%;
