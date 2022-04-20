@@ -80,7 +80,7 @@ function showEachMovie(data) {
 
 }
 
-let actorApi = 'https://api.themoviedb.org/3/movie/675353/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US'
+let actorApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
 
 getActorLink(actorApi)
 
