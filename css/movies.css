@@ -254,6 +254,10 @@
 
 @media screen and (max-width:885px) {
 
+  .mainInfo {
+    background-position: center;
+  }
+
   .mainOfInfo {
     height: auto !important;
   }
