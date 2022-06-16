@@ -89,7 +89,6 @@ function getActorLink(actorLink) {
   fetch(actorLink)
 .then(res => res.json())
 .then(actor => {
-  console.log('actors', actor.cast);
   showActors(actor.cast)
 })
 }
@@ -153,25 +152,30 @@ function showRec (rec) {
 
 let videoApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/videos?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
 
-console.log(videoApi);
+getVideoLink()
 
-function getVideoLink (videoLink) {
-  fetch(videoLink)
+function getVideoLink () {
+  fetch(videoApi)
   .then(res => res.json())
   .then(vid => {
-    console.log('video' videoApi);
+    console.log(vid.results);
+    showTrailer(vid.results)
   })
 }
 
-function showTrailer() {
-  let mainBox = document.createElement('div')
-  mainBox.classList.add('mainVideoBox')
-  document.body.appendChild(mainBox)
-  let videoBox = document.createElement('div')
-  videoBox.classList.add('videoBox')
-  mainBox.appendChild(videoBox)
-  let videoTag = document.createElement('video')
-  videoTag.setAttribute('src', )
+function showTrailer(vid) {
+
+  vid.forEach(trailer => {
+    let mainBox = document.createElement('div')
+    mainBox.classList.add('mainVideoBox')
+    document.body.appendChild(mainBox)
+    let videoBox = document.createElement('div')
+    videoBox.classList.add('videoBox')
+    mainBox.appendChild(videoBox)
+    let videoTag = document.createElement('video')
+    videoTag.setAttribute('src', vid.key)
+  })
+
 }
 
 // let watchBtn = document.querySelector('.watchBtn')
