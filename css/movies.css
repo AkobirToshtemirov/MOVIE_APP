@@ -82,6 +82,7 @@
 
 .genreDiv p {
   margin: 7px;
+  word-spacing: 15px;
 }
 
 .moreInfo span {
@@ -255,7 +256,9 @@
 @media screen and (max-width:885px) {
 
   .mainInfo {
+    background-size: cover;
     background-position: center;
+
   }
 
   .mainOfInfo {
@@ -298,12 +301,13 @@
 
 @media screen and (max-width:670px) {
   .genreDiv {
-    flex-direction: column;
-    align-items: flex-start;
+    text-align: justify;
   }
 
   .genreDiv  p {
-    margin: 3px 0;
+    margin: 4px;
+    font-size: 13px;
+    text-align: justify;
   }
 }
 

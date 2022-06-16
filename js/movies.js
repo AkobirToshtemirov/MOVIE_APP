@@ -55,11 +55,12 @@ function showEachMovie(data) {
         </div>
         </div>     
 
-        <span class="genreSpan">GENRES :</span>
         <div class="genreDiv">
-        ${genres.map(genre => {
-          return `<p>${genre.name}</p>`
-        })}
+        <span class="genreSpan">GENRES :</span>
+        <p> ${genres.map(genre => {
+          return genre.name
+        })} </p>
+        
         </div>
       </div>
 
@@ -150,4 +151,20 @@ function showRec (rec) {
 
 }
 
+function showTrailer() {
+  let mainBox = document.createElement('div')
+  mainBox.classList.add('mainVideoBox')
+  document.body.appendChild(mainBox)
+  let videoBox = document.createElement('div')
+  videoBox.classList.add('videoBox')
+  mainBox.appendChild(videoBox)
+  let videoTag = document.createElement('video')
+  videoTag.setAttribute('src', recommendApi)
+}
 
+let watchBtn = document.querySelector('.watchBtn')
+console.log(watchBtn);
+
+watchBtn.addEventListener('click', () => {
+  showTrailer() 
+})
