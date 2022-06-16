@@ -151,6 +151,18 @@ function showRec (rec) {
 
 }
 
+let videoApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/videos?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
+
+console.log(videoApi);
+
+function getVideoLink (videoLink) {
+  fetch(videoLink)
+  .then(res => res.json())
+  .then(vid => {
+    console.log('video' videoApi);
+  })
+}
+
 function showTrailer() {
   let mainBox = document.createElement('div')
   mainBox.classList.add('mainVideoBox')
@@ -159,12 +171,12 @@ function showTrailer() {
   videoBox.classList.add('videoBox')
   mainBox.appendChild(videoBox)
   let videoTag = document.createElement('video')
-  videoTag.setAttribute('src', recommendApi)
+  videoTag.setAttribute('src', )
 }
 
-let watchBtn = document.querySelector('.watchBtn')
-console.log(watchBtn);
+// let watchBtn = document.querySelector('.watchBtn')
+// console.log(watchBtn);
 
-watchBtn.addEventListener('click', () => {
-  showTrailer() 
-})
+// watchBtn.addEventListener('click', () => {
+//   showTrailer() 
+// })
