@@ -67,6 +67,7 @@ function showEachMovie(data) {
 
       <h3>overview</h3>
       <p class="overviewText">${overview}</p>
+      <i>' website is created by <b>Akobir Toshtemirov</b> '</i>
 
       <br>
 
@@ -183,4 +184,5 @@ function showTrailer(vid) {
 
 // watchBtn.addEventListener('click', () => {
 //   showTrailer() 
+// created by Akobir Toshtemirov
 // })
