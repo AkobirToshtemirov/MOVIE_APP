@@ -67,6 +67,7 @@ function showEachMovie(data) {
 
       <h3>overview</h3>
       <p class="overviewText">${overview}</p>
+      <p></p> <i>website is created by <b>Akobir_Dev</b></i> </p>
 
       <br>
 
