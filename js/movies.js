@@ -28,6 +28,8 @@ function getMains(links) {
 })
 }
 
+
+
 function showEachMovie(data) {
   
   mainInfo.innerHTML = ``
@@ -72,14 +74,65 @@ function showEachMovie(data) {
       <br>
 
       <div class="btnBlock">
-      <button class="watchBtn">
+      <button id="watchId" class="watchBtn">
       <svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="50px" width="50px" xmlns="http://www.w3.org/2000/svg"><path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"></path></svg>
       Watch Trailer
   </button>
       </div>
   `
 
+  document.getElementById("watchId").addEventListener('click', () => {
+    console.log(id);
+    openNav(data)
+  })
 
+}
+
+const overlayContent = document.getElementById("overlay-content")
+
+/* Open when someone click's on the span element */
+function openNav(data) {
+  let id = data.id
+  fetch(baseURL + '/movie/' + id + '/videos?' + API_key)
+  .then(res => res.json())
+  .then(videoData => {
+    console.log(videoData);
+
+    if(videoData) {
+      document.getElementById("myNav").style.width = "100%";
+
+      if(videoData.results.length > 0) {
+        let embed = [];
+        videoData.results.forEach(video => {
+          let {key, name, site} = video
+
+          if(site == "YouTube") {
+            embed.push(`
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `)
+          }
+
+        })
+        showVideos()
+        overlayContent.innerHTML = embed.join('')
+      } else {
+        overlayContent.innerHTML = `<h1>No Results Found</h1>`
+      }
+    }
+  })
+
+
+  document.body.style.overflow = 'hidden'
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.body.style.overflowY = 'scroll'
+}
+
+function showVideos() {
+  let embedClasses = document.querySelector('.embed')
 }
 
 let actorApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
@@ -151,38 +204,41 @@ function showRec (rec) {
 
 }
 
-let videoApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/videos?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
-
-getVideoLink()
-
-function getVideoLink () {
-  fetch(videoApi)
-  .then(res => res.json())
-  .then(vid => {
-    console.log(vid.results);
-    showTrailer(vid.results)
-  })
-}
-
-function showTrailer(vid) {
-
-  vid.forEach(trailer => {
-    let mainBox = document.createElement('div')
-    mainBox.classList.add('mainVideoBox')
-    document.body.appendChild(mainBox)
-    let videoBox = document.createElement('div')
-    videoBox.classList.add('videoBox')
-    mainBox.appendChild(videoBox)
-    let videoTag = document.createElement('video')
-    videoTag.setAttribute('src', vid.key)
-  })
-
-}
 
 // let watchBtn = document.querySelector('.watchBtn')
 // console.log(watchBtn);
+
+// let videoApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/videos?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
+
+// getVideoLink()
+
+// function getVideoLink () {
+//   fetch(videoApi)
+//   .then(res => res.json())
+//   .then(vid => {
+//     console.log(vid.results);
+//     showTrailer(vid.results)
+//   })
+// }
+
+// function showTrailer(vid) {
+
+//   vid.forEach(trailer => {
+//     let mainBox = document.createElement('div')
+//     mainBox.classList.add('mainVideoBox')
+//     document.body.appendChild(mainBox)
+//     let videoBox = document.createElement('div')
+//     videoBox.classList.add('videoBox')
+//     mainBox.appendChild(videoBox)
+//     let videoTag = document.createElement('video')
+//     videoTag.setAttribute('src', vid.key)
+//   })
+
+// }
+
 
 // watchBtn.addEventListener('click', () => {
 //   showTrailer() 
 // created by Akobir Toshtemirov
 // })
+
