@@ -380,4 +380,17 @@
   display: inline-block;
 }
 
+.arrow {
+  position: absolute;
+  cursor: pointer;
+}
+
+.left_arrow {
+  left: 10%;
+}
+
+.right_arrow {
+  right: 10%;
+}
+
 /* created by Akobir Toshtemirov */

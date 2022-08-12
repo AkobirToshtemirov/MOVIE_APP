@@ -113,8 +113,10 @@ function openNav(data) {
           }
 
         })
-        showVideos()
+      
         overlayContent.innerHTML = embed.join('')
+        activeSlide = 0;
+        showVideos();
       } else {
         overlayContent.innerHTML = `<h1>No Results Found</h1>`
       }
@@ -131,9 +133,45 @@ function closeNav() {
   document.body.style.overflowY = 'scroll'
 }
 
+let activeSlide = 0;
+let totalVideos = 0;
+
+
 function showVideos() {
-  let embedClasses = document.querySelector('.embed')
+  let embedClasses = document.querySelectorAll('.embed')
+  totalVideos = embedClasses.length
+
+  embedClasses.forEach((embedTag, idx) => {
+    if(activeSlide == idx) {
+      embedTag.classList.add('show')
+      embedTag.classList.remove('hide')
+    } else {
+      embedTag.classList.add('hide')
+      embedTag.classList.remove('show')
+    }
+  })
 }
+
+const leftArrow = document.getElementById('left_arrow')
+const rightArrow = document.getElementById('right_arrow')
+
+leftArrow.addEventListener('click', () => {
+  if(activeSlide > 0) {
+    activeSlide --;
+  } else {
+    activeSlide = totalVideos - 1;
+  }
+  showVideos()
+})
+
+rightArrow.addEventListener('click', () => {
+  if(activeSlide < (totalVideos - 1)) {
+    activeSlide ++;
+  } else {
+    activeSlide = 0;
+  }
+  showVideos()
+})
 
 let actorApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
 
@@ -241,4 +279,3 @@ function showRec (rec) {
 //   showTrailer() 
 // created by Akobir Toshtemirov
 // })
-
