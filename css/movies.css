@@ -273,11 +273,9 @@
   top: 25%; 
   width: 100%; 
   text-align: center; 
-  margin-top: 30px;
 }
 
 .overlay a {
-  padding: 8px;
   text-decoration: none;
   font-size: 36px;
   color: #818181;
@@ -391,6 +389,29 @@
 
 .right_arrow {
   right: 10%;
+}
+
+.current {
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50%;
+  border: 5px solid orange;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.dots .dot {
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 50%;
+  border: 5px solid rgb(41, 19, 241);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.dots .dot.active {
+  border-color: orangered;
 }
 
 /* created by Akobir Toshtemirov */

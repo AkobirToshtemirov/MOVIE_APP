@@ -103,22 +103,41 @@ function openNav(data) {
 
       if(videoData.results.length > 0) {
         let embed = [];
-        videoData.results.forEach(video => {
+        let dots = [];
+
+        videoData.results.forEach((video, idx) => {
           let {key, name, site} = video
 
           if(site == "YouTube") {
             embed.push(`
             <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             `)
+
+            dots.push(`
+            <span class="dot">${idx + 1}</span>
+            `)
           }
 
         })
-      
-        overlayContent.innerHTML = embed.join('')
+
+        let content = `
+        <h2 style="color: #fff;">${data.original_title}</h2>
+        <br>
+        ${embed.join('')}
+        <br>
+        <br>
+        <div class="dots">
+          ${dots.join(' ')}
+        </div>
+
+        `      
+        overlayContent.innerHTML = content
         activeSlide = 0;
         showVideos();
       } else {
-        overlayContent.innerHTML = `<h1>No Results Found</h1>`
+        overlayContent.innerHTML = `<h1 style="color: #fff;">No Results Found</h1>`
+        leftArrow.style.display = 'none'
+        rightArrow.style.display = 'none'
       }
     }
   })
@@ -139,6 +158,8 @@ let totalVideos = 0;
 
 function showVideos() {
   let embedClasses = document.querySelectorAll('.embed')
+  let dots = document.querySelectorAll('.dot')
+
   totalVideos = embedClasses.length
 
   embedClasses.forEach((embedTag, idx) => {
@@ -148,6 +169,14 @@ function showVideos() {
     } else {
       embedTag.classList.add('hide')
       embedTag.classList.remove('show')
+    }
+  })
+
+  dots.forEach((dot, index) => {
+    if(activeSlide == index) {
+      dot.classList.add('active')
+    } else {
+      dot.classList.remove('active')
     }
   })
 }
