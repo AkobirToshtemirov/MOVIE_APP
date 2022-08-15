@@ -26,7 +26,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,#150075ce,rgba(2, 0, 139, 0.829));
+  background: linear-gradient(90deg,rgba(22, 0, 82, 0.76),rgba(0, 0, 0, 0.829), rgba(0, 0, 0, 0.829), rgba(0, 0, 0, 0.829), rgba(0, 0, 0, 0.829), rgba(0, 0, 0, 0.829), rgba(0, 0, 0, 0.829), rgba(22, 0, 82, 0.76));
   top: 0;
   left: 0;
 }
