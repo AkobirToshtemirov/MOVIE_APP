@@ -216,6 +216,31 @@ main .container a {
   -webkit-animation: right 1.5s ease infinite;
 }
 
+#genreMain {
+  margin: 15px 0;
+  margin-bottom: 5px !important;
+}
+
+#tags {
+  padding: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+#tags .tag {
+  margin: 5px;
+  padding: 5px 10px;
+  color: #22254b;
+  background-color: rgb(255, 208, 0);
+  border-radius: 17px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+#tags .tag:hover {
+  box-shadow: 0 0 7px rgb(255, 208, 0);
+  transition: 0.4s ease;
+}
+
 @keyframes right {
   100% {
     transform: translateX(800%);
