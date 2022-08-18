@@ -9,6 +9,10 @@
 
     <link rel="stylesheet" href="../css/movies.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
 
 </head>
 <body>
@@ -32,15 +36,27 @@
 
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
-        <div class="overlay-content" id="overlay-content">       </div>
+        <div class="overlay-content" id="overlay-content">    
+            <!-- <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">Slide 1</div>
+                  <div class="swiper-slide">Slide 2</div>
+                  <div class="swiper-slide">Slide 3</div>
+                  <div class="swiper-slide">Slide 4</div>
+                  <div class="swiper-slide">Slide 5</div>
+                  <div class="swiper-slide">Slide 6</div>
+                  <div class="swiper-slide">Slide 7</div>
+                  <div class="swiper-slide">Slide 8</div>
+                  <div class="swiper-slide">Slide 9</div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div> -->
+          
+        </div>
       
-        <a href="javascript:void(0)" class="arrow left_arrow"
-        id="left_arrow">&#8656;</a>
-        <a href="javascript:void(0)" class="arrow right_arrow"
-        id="right_arrow">&#8658;</a>
-
-
-      </div>
+    </div>
     
     <div class="mainOfInfo">
         <div class="mainInfo">
@@ -53,10 +69,7 @@
             <div class="actorMain">
                 <h1 class="topText">Top Billed Cast</h1>
                 <div class="actorBlock">
-                   <!--  <div class="actorBox">
-                        <img src="" alt="" class="actorImg">
-                        <h3 class="trueName"></h3>
-                    </div>-->
+                  
                 </div> 
 
             </div>
@@ -65,14 +78,7 @@
                 <h1 class="topText">Recomondation</h1>
 
                 <div class="recomondBlock">
-                    <!-- <div class="recBox">
-                        <div class="recInfo">
-                            <h3 class="recName"></h3>
-                            <p></p>
-                        </div>
-                        <img class="recImg" src="" alt="">
-                      
-                    </div> -->
+                    
                 </div>
             </div>
         </div>
@@ -81,6 +87,25 @@
 
     <script src="../js/movies.js"></script>
     <script src="../js/motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          keyboard: {
+            enabled: true,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
 
     <!-- created by Toshtemirov Akobir -->
 

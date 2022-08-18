@@ -103,41 +103,37 @@ function openNav(data) {
 
       if(videoData.results.length > 0) {
         let embed = [];
-        let dots = [];
 
-        videoData.results.forEach((video, idx) => {
+        videoData.results.forEach((video) => {
           let {key, name, site} = video
 
           if(site == "YouTube") {
             embed.push(`
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            `)
-
-            dots.push(`
-            <span class="dot">${idx + 1}</span>
+            <div class="swiper-slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             `)
           }
 
         })
 
+        console.log(embed);
+
         let content = `
         <h2 style="color: #fff;">${data.original_title}</h2>
         <br>
+        
+        <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
         ${embed.join('')}
-        <br>
-        <br>
-        <div class="dots">
-          ${dots.join(' ')}
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
 
-        `      
+        `     
         overlayContent.innerHTML = content
-        activeSlide = 0;
-        showVideos();
       } else {
         overlayContent.innerHTML = `<h1 style="color: #fff;">No Results Found</h1>`
-        leftArrow.style.display = 'none'
-        rightArrow.style.display = 'none'
       }
     }
   })
@@ -146,61 +142,34 @@ function openNav(data) {
   document.body.style.overflow = 'hidden'
 }
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
   document.body.style.overflowY = 'scroll'
 }
 
-let activeSlide = 0;
-let totalVideos = 0;
+const swiperWrapper = document.querySelector('.swiper-wrapper')
 
+// function showVideos() {
+//   let embedClasses = document.querySelectorAll('.embed')
 
-function showVideos() {
-  let embedClasses = document.querySelectorAll('.embed')
-  let dots = document.querySelectorAll('.dot')
+//   embedClasses.forEach(item => {
+//     let swiperTag = document.createElement('div')
+//     swiperTag.classList.add('swiper-slide')
+//     swiperTag.appendChild(item)
+//   })
 
-  totalVideos = embedClasses.length
+//   // embedClasses.forEach((embedTag, idx) => {
+//   //   if(activeSlide == idx) {
+//   //     embedTag.classList.add('show')
+//   //     embedTag.classList.remove('hide')
+//   //   } else {
+//   //     embedTag.classList.add('hide')
+//   //     embedTag.classList.remove('show')
+//   //   }
+//   // })
 
-  embedClasses.forEach((embedTag, idx) => {
-    if(activeSlide == idx) {
-      embedTag.classList.add('show')
-      embedTag.classList.remove('hide')
-    } else {
-      embedTag.classList.add('hide')
-      embedTag.classList.remove('show')
-    }
-  })
+// }
 
-  dots.forEach((dot, index) => {
-    if(activeSlide == index) {
-      dot.classList.add('active')
-    } else {
-      dot.classList.remove('active')
-    }
-  })
-}
-
-const leftArrow = document.getElementById('left_arrow')
-const rightArrow = document.getElementById('right_arrow')
-
-leftArrow.addEventListener('click', () => {
-  if(activeSlide > 0) {
-    activeSlide --;
-  } else {
-    activeSlide = totalVideos - 1;
-  }
-  showVideos()
-})
-
-rightArrow.addEventListener('click', () => {
-  if(activeSlide < (totalVideos - 1)) {
-    activeSlide ++;
-  } else {
-    activeSlide = 0;
-  }
-  showVideos()
-})
 
 let actorApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
 
@@ -270,41 +239,3 @@ function showRec (rec) {
   })
 
 }
-
-
-// let watchBtn = document.querySelector('.watchBtn')
-// console.log(watchBtn);
-
-// let videoApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/videos?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
-
-// getVideoLink()
-
-// function getVideoLink () {
-//   fetch(videoApi)
-//   .then(res => res.json())
-//   .then(vid => {
-//     console.log(vid.results);
-//     showTrailer(vid.results)
-//   })
-// }
-
-// function showTrailer(vid) {
-
-//   vid.forEach(trailer => {
-//     let mainBox = document.createElement('div')
-//     mainBox.classList.add('mainVideoBox')
-//     document.body.appendChild(mainBox)
-//     let videoBox = document.createElement('div')
-//     videoBox.classList.add('videoBox')
-//     mainBox.appendChild(videoBox)
-//     let videoTag = document.createElement('video')
-//     videoTag.setAttribute('src', vid.key)
-//   })
-
-// }
-
-
-// watchBtn.addEventListener('click', () => {
-//   showTrailer() 
-// created by Akobir Toshtemirov
-// })
