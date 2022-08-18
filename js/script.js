@@ -186,11 +186,26 @@ function setgGenre() {
         }
       }
       console.log(selectedGenre);
-      getMovie(API_url + '&with_genres=' + encodeURI(selectedGenre.join(',')))
+      getMovie(API_url + '&with_genres=' + encodeURI(selectedGenre.join(',')));
+      highlightSelection()
     })
 
     tags.appendChild(t)
   })
+}
+
+function highlightSelection() {
+  const allTags = document.querySelectorAll('.tag');
+  allTags.forEach(tag => {
+    tag.classList.remove('highlight')
+  })
+  if(selectedGenre.length != 0) {
+    selectedGenre.forEach(id => {
+      const highlightedTag = document.getElementById(id)
+      highlightedTag.classList.add('highlight')
+
+    })
+  }
 }
 
 console.log(genres);

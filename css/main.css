@@ -241,6 +241,11 @@ main .container a {
   transition: 0.4s ease;
 }
 
+.tag.highlight {
+  background-color: rgb(255, 94, 0) !important;
+  color: #fff !important;
+}
+
 @keyframes right {
   100% {
     transform: translateX(800%);

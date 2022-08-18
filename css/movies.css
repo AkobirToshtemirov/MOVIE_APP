@@ -400,9 +400,19 @@
   font-weight: 600;
 }
 
+.dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 auto;
+}
+
 .dots .dot {
   color: #fff;
-  padding: 5px 15px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 5px solid rgb(41, 19, 241);
   font-size: 20px;
