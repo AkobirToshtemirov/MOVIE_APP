@@ -132,6 +132,23 @@ function openNav(data) {
 
         `     
         overlayContent.innerHTML = content
+
+        
+        let swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          keyboard: {
+            enabled: true,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
       } else {
         overlayContent.innerHTML = `<h1 style="color: #fff;">No Results Found</h1>`
       }
@@ -142,21 +159,6 @@ function openNav(data) {
   document.body.style.overflow = 'hidden'
 }
 
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 30,
-  keyboard: {
-    enabled: true,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
 
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
