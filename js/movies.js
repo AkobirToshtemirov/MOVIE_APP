@@ -142,6 +142,22 @@ function openNav(data) {
   document.body.style.overflow = 'hidden'
 }
 
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  keyboard: {
+    enabled: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
   document.body.style.overflowY = 'scroll'
@@ -149,26 +165,6 @@ function closeNav() {
 
 const swiperWrapper = document.querySelector('.swiper-wrapper')
 
-// function showVideos() {
-//   let embedClasses = document.querySelectorAll('.embed')
-
-//   embedClasses.forEach(item => {
-//     let swiperTag = document.createElement('div')
-//     swiperTag.classList.add('swiper-slide')
-//     swiperTag.appendChild(item)
-//   })
-
-//   // embedClasses.forEach((embedTag, idx) => {
-//   //   if(activeSlide == idx) {
-//   //     embedTag.classList.add('show')
-//   //     embedTag.classList.remove('hide')
-//   //   } else {
-//   //     embedTag.classList.add('hide')
-//   //     embedTag.classList.remove('show')
-//   //   }
-//   // })
-
-// }
 
 
 let actorApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
