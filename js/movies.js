@@ -137,6 +137,8 @@ function openNav(data) {
         let swiper = new Swiper(".mySwiper", {
           slidesPerView: 1,
           spaceBetween: 30,
+          loop: true,
+          grabCursor: true,
           keyboard: {
             enabled: true,
           },   pagination: {
