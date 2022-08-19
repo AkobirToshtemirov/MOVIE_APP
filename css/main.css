@@ -224,10 +224,11 @@ main .container a {
 #tags {
   padding: 5px 0;
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 #tags .tag {
-  margin: 5px;
+  margin: 5px 3px;
   padding: 5px 0;
   width: 135px;
   text-align: center;
