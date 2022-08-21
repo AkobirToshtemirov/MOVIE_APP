@@ -21,8 +21,11 @@ function getMovie(url) {
   fetch(url)
   .then(res => res.json())
   .then(data => {
-    console.log(data);
-    showMovies(data.results)
+    if(data.results.length !==0) {
+      showMovies(data.results)
+    } else {
+      mainTag.innerHTML = '<h1 class="noResult">No Results Found</h1>'
+    }
     console.log(data.results);
   })
 }
@@ -39,7 +42,7 @@ function showMovies(data) {
     const movieElem = document.createElement('div');
     movieElem.classList.add('movie');
     movieElem.innerHTML = `
-    <img src="${img_url + poster_path}" alt="${title}">
+    <img src="${poster_path? img_url + poster_path: "http://via.placeholder.com/1080x1580"}" alt="${title}">
   
     <div class="movieInfo">
       <h3>${title}</h3>
@@ -199,12 +202,33 @@ function highlightSelection() {
   allTags.forEach(tag => {
     tag.classList.remove('highlight')
   })
+
+  clearBtn()
+
   if(selectedGenre.length != 0) {
     selectedGenre.forEach(id => {
       const highlightedTag = document.getElementById(id)
       highlightedTag.classList.add('highlight')
-
     })
+  }
+}
+
+
+function clearBtn() {
+  let clearBtn = document.getElementById('clear')
+  if(clearBtn) {
+    clearBtn.classList.add('highlightClear')
+  } else {
+    let clear = document.createElement('div');
+    clear.classList.add('tag', 'highlightClear');
+    clear.id = 'clear';
+    clear.innerText = 'clear X';
+    clear.addEventListener('click', () => {
+      selectedGenre = [];
+      setgGenre();
+      getMovie(API_url);
+    })
+    tags.appendChild(clear)
   }
 }
 

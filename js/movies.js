@@ -40,7 +40,7 @@ function showEachMovie(data) {
      titleMain.innerText = title
 
   mainInfo.innerHTML = `
-  <img class="filmIDimg" src="${img_url + poster_path}" alt="${title}">
+  <img class="filmIDimg" src="${poster_path? img_url + poster_path: "http://via.placeholder.com/1080x1580"}" alt="${title}">
 
   <div class="textInfo">
       <h1>${title}</h1>

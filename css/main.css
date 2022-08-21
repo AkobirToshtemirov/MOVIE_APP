@@ -278,9 +278,34 @@ main .container a {
     width: 50px;
     height: 45px;
   }
+
+  .movie {
+    width: 250px;
+    
+  }
+
+  .movie img {
+    height: 270px;
+  }
+}
+
+
+@media screen and (max-width:780px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width:665px) {
+  .container {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width:590px) {
+  .container {
+    width: 100%;
+  }
 
   main .container {
     padding: 10px 20px;
@@ -316,12 +341,26 @@ main .container a {
     width: 170px;
   }
 
+  .movie img {
+    height: 300px;
+  }
+
 }
 
 @media screen and (max-width:300px) {
   form {
     width: 100px;
   }
+}
+
+.noResult {
+  color: #fff;
+  margin: 0 auto;
+}
+
+.highlightClear {
+  background-color: red !important;
+  color: #fff !important;
 }
 
 /* created by Akobir Toshtemirov */
