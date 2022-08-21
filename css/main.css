@@ -356,6 +356,7 @@ main .container a {
 .noResult {
   color: #fff;
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 .highlightClear {

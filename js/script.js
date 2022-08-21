@@ -222,7 +222,7 @@ function clearBtn() {
     clearBtn.classList.add('highlightClear')
   } else {
     let clear = document.createElement('div');
-    clear.classList.add('tag', 'highlightClear  ');
+    clear.classList.add('tag', 'highlightClear');
     clear.id = 'clear';
     clear.innerText = 'clear X';
     clear.addEventListener('click', () => {
