@@ -77,6 +77,8 @@ formInput.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const searchTerm = search.value;
+  selectedGenre = [];
+  setgGenre()
   if(searchTerm) {
     getMovie(search_url + '&query=' + searchTerm)
   }
@@ -220,7 +222,7 @@ function clearBtn() {
     clearBtn.classList.add('highlightClear')
   } else {
     let clear = document.createElement('div');
-    clear.classList.add('tag', 'highlightClear');
+    clear.classList.add('tag', 'highlightClear  ');
     clear.id = 'clear';
     clear.innerText = 'clear X';
     clear.addEventListener('click', () => {
