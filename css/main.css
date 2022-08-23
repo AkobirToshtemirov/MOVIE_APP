@@ -384,6 +384,10 @@ main .container a {
   .container {
     width: 90%;
   }
+
+  header {
+    height: 70px;
+  }
 }
 
 @media screen and (max-width:590px) {
