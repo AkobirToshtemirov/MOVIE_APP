@@ -32,6 +32,7 @@ let totalPages = 100;
 
 getMovie(API_url)
 
+
 function getMovie(url) {
   lastUrl = url;
   fetch(url)
@@ -260,7 +261,6 @@ function setgGenre() {
       getMovie(API_url + '&with_genres=' + encodeURI(selectedGenre.join(',')));
       highlightSelection()
     })
-
     tags.appendChild(t)
   })
 }
@@ -300,6 +300,15 @@ function clearBtn() {
   }
 }
 
+const menuBtn = document.querySelector('.menuBtn')
+
+menuBtn.addEventListener('click', () => {
+  if(tags.classList.contains('newResTag')) {
+    tags.classList.remove('newResTag')
+  } else {
+    tags.classList.add('newResTag')
+  }
+})
 
 console.log(genres);
 
