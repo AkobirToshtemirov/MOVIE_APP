@@ -339,7 +339,7 @@ main .container a {
     top: 0;
     left: 0;
     position: fixed;
-    width: 46%;
+    width: 55%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.637);
     z-index: 100;
