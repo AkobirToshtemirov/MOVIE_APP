@@ -342,6 +342,13 @@ main .container a {
   height: 35px;
 }
 
+.selectionOf {
+  width: 100%;
+  margin: 0 0 10px 20px;
+  font-size: 20px;
+  color: rgb(255, 208, 0);
+  
+}
 @media screen and (max-width:730px) {
   .resTag {
     top: 0;
@@ -358,13 +365,20 @@ main .container a {
   }
 
   .resTag .tag {
-    width: 95% !important;
+    width: 90% !important;
     border-radius: 0 !important;
     background-color: transparent !important;
     color: #fff !important;
     transform: 0.4s ease !important;
     text-align: left !important;
     padding-left: 20px !important;
+  }
+
+  .selectionOf {
+    width: 90% !important;
+    margin: 5px 3px !important;
+    padding: 5px 0 5px 20px !important;
+    font-size: 16px;
   }
 
   .resTag .tag:hover {

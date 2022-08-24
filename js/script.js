@@ -236,7 +236,7 @@ let selectedGenre = [];
 setgGenre()
 
 function setgGenre() {
-  tags.innerHTML = ``;
+  tags.innerHTML = `<p class="selectionOf">Select one or couple genres:</p>`;
 
   genres.forEach((genre) => {
     const t = document.createElement('div')
