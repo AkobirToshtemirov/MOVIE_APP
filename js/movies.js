@@ -70,7 +70,7 @@ function showEachMovie(data) {
         <span class="genreSpan">GENRES :</span>
         
         <div class="genreTexts">
-          ${divArray.join(',    ')}
+          ${divArray.join(',  ')}
          </div>
         
         </div>
