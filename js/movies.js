@@ -39,6 +39,15 @@ function showEachMovie(data) {
      mainBackgroundImg.style.backgroundImage = `url('${img_url + backdrop_path}')`
      titleMain.innerText = title
 
+     let divArray = []
+
+     for(let i = 0; i < genres.length; i++) {
+      let div = document.createElement('div')
+      div.innerText = genres[i].name
+      divArray.push(div.textContent)
+    }
+  
+
   mainInfo.innerHTML = `
   <img class="filmIDimg" src="${poster_path? img_url + poster_path: "http://via.placeholder.com/1080x1580"}" alt="${title}">
 
@@ -59,9 +68,10 @@ function showEachMovie(data) {
 
         <div class="genreDiv">
         <span class="genreSpan">GENRES :</span>
-        <p> ${genres.map(genre => {
-          return genre.name
-        })} </p>
+        
+        <div class="genreTexts">
+          ${divArray.join(',    ')}
+         </div>
         
         </div>
       </div>
@@ -86,7 +96,13 @@ function showEachMovie(data) {
     openNav(data)
   })
 
+ /* ${genres.map(genre => {
+    return `<div>${genre.name}</div>`
+  })} */
+
 }
+
+
 
 const overlayContent = document.getElementById("overlay-content")
 

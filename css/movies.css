@@ -82,12 +82,21 @@
   align-items: center;
 }
 
-.genreDiv p {
+.genreTexts {
+  display: flex;
+  flex: wrap;
+}
+
+.genreTexts div {
   margin: 7px;
   word-spacing: 15px;
+  text-align: center;
 }
 
 .moreInfo span {
+  width: 75px;
+  height: 30px;
+  margin-right: 10px;
   padding: 3px;
   border-radius: 7px;
   background-color: rgb(245, 229, 0);

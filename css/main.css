@@ -324,6 +324,11 @@ main .container a {
   }
 }
 
+.humburger {
+  display: none;
+}
+
+
 .humburger .menuBtn {
   border: none ;
   background-color: transparent;
@@ -375,6 +380,10 @@ main .container a {
 
   .mainElem {
     margin-top: 50px;
+  }
+
+  .humburger {
+    display: block !important;
   }
  
 }

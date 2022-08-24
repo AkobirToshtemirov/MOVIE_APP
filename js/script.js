@@ -308,6 +308,12 @@ menuBtn.addEventListener('click', () => {
   } else {
     tags.classList.add('newResTag')
   }
+
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges();
+  } else { 
+    document.selection.empty();
+  }
 })
 
 console.log(genres);
