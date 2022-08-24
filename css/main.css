@@ -256,6 +256,8 @@ main .container a {
   margin: 0 40px;
   color: rgb(255, 208, 0);
   transition: 0.4s ease;
+  border: none;
+  background: none;
 }
 
 .page:hover {
@@ -273,6 +275,7 @@ main .container a {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: none;
 }
 
 .disabled {
