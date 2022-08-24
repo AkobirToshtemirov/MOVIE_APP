@@ -335,11 +335,22 @@ main .container a {
 .humburger .menuBtn {
   border: none ;
   background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
 }
 
 .menuBtn img {
   width: 35px;
   height: 35px;
+}
+
+.cancel {
+  width: 25px !important;
+  height: 25px !important;
+  display: none;
 }
 
 .selectionOf {

@@ -301,19 +301,20 @@ function clearBtn() {
 }
 
 const menuBtn = document.querySelector('.menuBtn')
+const menuImg = document.querySelectorAll('.menuBtn .menuImg')
+console.log(menuImg);
 
 menuBtn.addEventListener('click', () => {
   if(tags.classList.contains('newResTag')) {
     tags.classList.remove('newResTag')
+    menuImg[0].style.display = 'block'
+    menuImg[1].style.display = 'none'
   } else {
     tags.classList.add('newResTag')
+    menuImg[0].style.display = 'none'
+    menuImg[1].style.display = 'block'
   }
 
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges();
-  } else { 
-    document.selection.empty();
-  }
 })
 
 console.log(genres);
