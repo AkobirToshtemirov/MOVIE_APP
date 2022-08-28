@@ -23,7 +23,6 @@ function getMains(links) {
   fetch(links)
   .then(res => res.json())
   .then(data => {
-    console.log(data);
     showEachMovie(data)
 })
 }
@@ -92,8 +91,8 @@ function showEachMovie(data) {
   `
 
   document.getElementById("watchId").addEventListener('click', () => {
-    console.log(id);
     openNav(data)
+    
   })
 
  /* ${genres.map(genre => {
@@ -112,10 +111,9 @@ function openNav(data) {
   fetch(baseURL + '/movie/' + id + '/videos?' + API_key)
   .then(res => res.json())
   .then(videoData => {
-    console.log(videoData);
 
     if(videoData) {
-      document.getElementById("myNav").style.width = "100%";
+      document.getElementById("myNav").classList.add('openOverlay');
 
       if(videoData.results.length > 0) {
         let embed = [];
@@ -125,13 +123,11 @@ function openNav(data) {
 
           if(site == "YouTube") {
             embed.push(`
-            <div class="swiper-slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            <div class="swiper-slide"><iframe id="videoTrailer" width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             `)
           }
 
         })
-
-        console.log(embed);
 
         let content = `
         <h2 style="color: #fff;">${data.original_title}</h2>
@@ -180,10 +176,27 @@ function openNav(data) {
   document.body.style.overflow = 'hidden'
 }
 
+let player;
+function playerVideo() {
+    player = new
+   YT.Player('video', {
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+// let iframe = document.getElementsByTagName('iframe')
+
+// document.getElementById('closeVideo').addEventListener('click', () => {
+//   iframe.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+//   player.stopVideo();
+// });
 
 function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
+  document.getElementById("myNav").classList.remove('openOverlay');
   document.body.style.overflowY = 'scroll'
+  
 }
 
 const swiperWrapper = document.querySelector('.swiper-wrapper')

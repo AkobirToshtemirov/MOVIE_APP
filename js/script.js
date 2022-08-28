@@ -32,7 +32,6 @@ let totalPages = 100;
 
 getMovie(API_url)
 
-
 function getMovie(url) {
   lastUrl = url;
   fetch(url)
@@ -59,7 +58,7 @@ function getMovie(url) {
 
       tags.scrollIntoView({behavior: 'smooth'})
 
-    } else {
+    } else {     
       mainTag.innerHTML = '<h1 class="noResult">No Results Found</h1>'
     }
     console.log(data.results);
