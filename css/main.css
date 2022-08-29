@@ -542,6 +542,10 @@ footer {
     width: 170px;
   }
 
+  .linkApp {
+    margin: 0 10px;
+  }
+
   .linkApp svg {
     width: 80px !important;
     height: 20px !important;
