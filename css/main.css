@@ -481,6 +481,10 @@ footer {
     flex-direction: column;
   }
 
+  .movie {
+    pointer-events: none;
+  }
+
   .copyright {
     margin-top: 15px;
   }
