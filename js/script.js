@@ -56,24 +56,25 @@ function getMovie(url) {
         next.classList.remove('disabled')
       }
 
-      tags.scrollIntoView({behavior: 'smooth'})
-
     } else {     
       mainTag.innerHTML = '<h1 class="noResult">No Results Found</h1>'
     }
   })
 }
 
+const forScroll = document.getElementById('forScroll')
 
 prev.addEventListener('click', () => {
   if(prevPage > 0) {
     pageCall(prevPage)
+    forScroll.scrollIntoView({behavior: 'smooth'})
   }
 })
 
 next.addEventListener('click', () => {
   if(nextPage <= totalPages) {
     pageCall(nextPage)
+    forScroll.scrollIntoView({behavior: 'smooth'})
   }
 })
 
