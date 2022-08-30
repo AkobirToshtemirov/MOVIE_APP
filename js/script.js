@@ -61,7 +61,6 @@ function getMovie(url) {
     } else {     
       mainTag.innerHTML = '<h1 class="noResult">No Results Found</h1>'
     }
-    console.log(data.results);
   })
 }
 
@@ -104,7 +103,6 @@ function showMovies(data) {
     const {title, poster_path, vote_average} = movie
     const link = document.createElement('a')
     link.setAttribute('href', `/page/movies.html`)
-    // link.setAttribute('target', '_blank')
     const movieElem = document.createElement('div');
     movieElem.classList.add('movie');
     movieElem.innerHTML = `
@@ -256,7 +254,6 @@ function setgGenre() {
           selectedGenre.push(genre.id);
         }
       }
-      console.log(selectedGenre);
       getMovie(API_url + '&with_genres=' + encodeURI(selectedGenre.join(',')));
       highlightSelection()
     })
@@ -301,8 +298,6 @@ function clearBtn() {
 
 const menuBtn = document.querySelector('.menuBtn')
 const menuImg = document.querySelectorAll('.menuBtn .menuImg')
-console.log(menuImg);
-
 menuBtn.addEventListener('click', () => {
   if(tags.classList.contains('newResTag')) {
     tags.classList.remove('newResTag')
@@ -315,8 +310,5 @@ menuBtn.addEventListener('click', () => {
   }
 
 })
-
-console.log(genres);
-
 
 // created by Akobir Toshtemirov

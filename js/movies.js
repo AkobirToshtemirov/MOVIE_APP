@@ -95,17 +95,12 @@ function showEachMovie(data) {
     
   })
 
- /* ${genres.map(genre => {
-    return `<div>${genre.name}</div>`
-  })} */
-
 }
 
 
 
 const overlayContent = document.getElementById("overlay-content")
 
-/* Open when someone click's on the span element */
 function openNav(data) {
   let id = data.id
   fetch(baseURL + '/movie/' + id + '/videos?' + API_key)
@@ -186,27 +181,19 @@ function playerVideo() {
     });
 }
 
-// let iframe = document.getElementsByTagName('iframe')
-
-// document.getElementById('closeVideo').addEventListener('click', () => {
-//   iframe.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-//   player.stopVideo();
-// });
-
-function closeNav() {
+let closeVideo = document.getElementById('closeVideo')
+closeVideo.addEventListener('click', () => {
+  let iframe = document.querySelectorAll('#videoTrailer')
+  iframe.forEach(item => {
+    item.setAttribute('src', '')
+  })
   document.getElementById("myNav").classList.remove('openOverlay');
   document.body.style.overflowY = 'scroll'
-  
-}
+})
 
 const swiperWrapper = document.querySelector('.swiper-wrapper')
-
-
-
 let actorApi = `https://api.themoviedb.org/3/movie/${localStorage.getItem('filmID')}/credits?api_key=66d51fdaf1c5dc58a0b0cde186d28671&language=en-US`
-
 getActorLink(actorApi)
-
 function getActorLink(actorLink) {
   fetch(actorLink)
 .then(res => res.json())
@@ -215,12 +202,8 @@ function getActorLink(actorLink) {
 })
 }
 
-
-
 function showActors(actor) {
   actorBlock.innerHTML = ``
-
-  // const {original_name, profile_path } = actor.cast
 
 actor.forEach(actors => {
   
