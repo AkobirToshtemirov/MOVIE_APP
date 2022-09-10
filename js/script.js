@@ -95,7 +95,6 @@ function pageCall(page) {
   }
 }
 
-
 function showMovies(data) {
 
   mainTag.innerHTML = ''
@@ -311,5 +310,15 @@ menuBtn.addEventListener('click', () => {
   }
 
 })
+
+getBanner()
+
+function getBanner() {
+  fetch('https://api.themoviedb.org/3/movie/popular?api_key=60413a5f672cfb8007082bc512040ca2')
+  .then(res => res.json())
+  .then(banner =>  {
+    console.log(banner.results);
+  })
+}
 
 // created by Akobir Toshtemirov
