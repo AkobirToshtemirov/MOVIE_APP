@@ -476,15 +476,9 @@ footer {
   footer {
     padding: 15px 0;
   }
-
   .footerMain {
     flex-direction: column;
   }
-
-  .movie {
-    pointer-events: none;
-  }
-
   .copyright {
     margin-top: 15px;
   }
