@@ -2,12 +2,12 @@
 
 const API_key = 'api_key=66d51fdaf1c5dc58a0b0cde186d28671';
 const baseURL = 'https://api.themoviedb.org/3';
-const API_url =  baseURL +'/discover/movie?sort_by=popularity.desc&' + API_key;
+const API_url = baseURL + '/discover/movie?sort_by=popularity.desc&' + API_key;
 const img_url = 'https://image.tmdb.org/t/p/w500'
 
 //search Information
 
-const search_url = baseURL + '/search/movie?'+ API_key;
+const search_url = baseURL + '/search/movie?' + API_key;
 
 // HTML DOM main
 
@@ -35,46 +35,46 @@ getMovie(API_url)
 function getMovie(url) {
   lastUrl = url;
   fetch(url)
-  .then(res => res.json())
-  .then(data => {
-    if(data.results.length !==0) {
-      showMovies(data.results)
-      currentPage = data.page;
-      nextPage = currentPage + 1;
-      prevPage = currentPage - 1;
-      totalPages = data.total_pages;
-      current.innerText = currentPage;
+    .then(res => res.json())
+    .then(data => {
+      if (data.results.length !== 0) {
+        showMovies(data.results)
+        currentPage = data.page;
+        nextPage = currentPage + 1;
+        prevPage = currentPage - 1;
+        totalPages = data.total_pages;
+        current.innerText = currentPage;
 
-      if(currentPage <= 1) {
-        prev.classList.add('disabled')
-        next.classList.remove('disabled')
-      } else if(currentPage >= totalPages) {
-        prev.classList.remove('disabled')
-        next.classList.add('disabled')
+        if (currentPage <= 1) {
+          prev.classList.add('disabled')
+          next.classList.remove('disabled')
+        } else if (currentPage >= totalPages) {
+          prev.classList.remove('disabled')
+          next.classList.add('disabled')
+        } else {
+          prev.classList.remove('disabled')
+          next.classList.remove('disabled')
+        }
+
       } else {
-        prev.classList.remove('disabled')
-        next.classList.remove('disabled')
+        mainTag.innerHTML = '<h1 class="noResult">No Results Found</h1>'
       }
-
-    } else {     
-      mainTag.innerHTML = '<h1 class="noResult">No Results Found</h1>'
-    }
-  })
+    })
 }
 
 const forScroll = document.getElementById('forScroll')
 
 prev.addEventListener('click', () => {
-  if(prevPage > 0) {
+  if (prevPage > 0) {
     pageCall(prevPage)
-    forScroll.scrollIntoView({behavior: 'smooth'})
+    forScroll.scrollIntoView({ behavior: 'smooth' })
   }
 })
 
 next.addEventListener('click', () => {
-  if(nextPage <= totalPages) {
+  if (nextPage <= totalPages) {
     pageCall(nextPage)
-    forScroll.scrollIntoView({behavior: 'smooth'})
+    forScroll.scrollIntoView({ behavior: 'smooth' })
   }
 })
 
@@ -82,7 +82,7 @@ function pageCall(page) {
   let urlSplit = lastUrl.split('?');
   let queryParametres = urlSplit[1].split('&');
   let key = queryParametres[queryParametres.length - 1].split('=');
-  if(key[0] != 'page') {
+  if (key[0] != 'page') {
     let url = lastUrl + '&page=' + page;
     getMovie(url);
   } else {
@@ -100,13 +100,13 @@ function showMovies(data) {
   mainTag.innerHTML = ''
 
   data.forEach(movie => {
-    const {title, poster_path, vote_average} = movie
+    const { title, poster_path, vote_average } = movie
     const link = document.createElement('a')
     link.setAttribute('href', `/page/movies.html`)
     const movieElem = document.createElement('div');
     movieElem.classList.add('movie');
     movieElem.innerHTML = `
-    <img src="${poster_path? img_url + poster_path: "http://via.placeholder.com/1080x1580"}" alt="${title}">
+    <img src="${poster_path ? img_url + poster_path : "http://via.placeholder.com/1080x1580"}" alt="${title}">
   
     <div class="movieInfo">
       <h3>${title}</h3>
@@ -128,7 +128,7 @@ function showMovies(data) {
 }
 
 function getColor(vote) {
-  if(vote >= 8) {
+  if (vote >= 8) {
     return 'green'
   } else if (vote >= 5) {
     return 'orange'
@@ -143,7 +143,7 @@ formInput.addEventListener('submit', (e) => {
   const searchTerm = search.value;
   selectedGenre = [];
   setgGenre()
-  if(searchTerm) {
+  if (searchTerm) {
     getMovie(search_url + '&query=' + searchTerm)
   }
 })
@@ -241,12 +241,12 @@ function setgGenre() {
     t.id = genre.id
     t.innerText = genre.name
     t.addEventListener('click', () => {
-      if(selectedGenre.length == 0) {
+      if (selectedGenre.length == 0) {
         selectedGenre.push(genre.id);
       } else {
-        if(selectedGenre.includes(genre.id)) {
+        if (selectedGenre.includes(genre.id)) {
           selectedGenre.forEach((id, idx) => {
-            if(id == genre.id) {
+            if (id == genre.id) {
               selectedGenre.splice(idx, 1)
             }
           })
@@ -269,7 +269,7 @@ function highlightSelection() {
 
   clearBtn()
 
-  if(selectedGenre.length != 0) {
+  if (selectedGenre.length != 0) {
     selectedGenre.forEach(id => {
       const highlightedTag = document.getElementById(id)
       highlightedTag.classList.add('highlight')
@@ -280,7 +280,7 @@ function highlightSelection() {
 
 function clearBtn() {
   let clearBtn = document.getElementById('clear')
-  if(clearBtn) {
+  if (clearBtn) {
     clearBtn.classList.add('highlightClear')
   } else {
     let clear = document.createElement('div');
@@ -299,7 +299,7 @@ function clearBtn() {
 const menuBtn = document.querySelector('.menuBtn')
 const menuImg = document.querySelectorAll('.menuBtn .menuImg')
 menuBtn.addEventListener('click', () => {
-  if(tags.classList.contains('newResTag')) {
+  if (tags.classList.contains('newResTag')) {
     tags.classList.remove('newResTag')
     menuImg[0].style.display = 'block'
     menuImg[1].style.display = 'none'
@@ -313,9 +313,9 @@ menuBtn.addEventListener('click', () => {
 getBanner()
 function getBanner() {
   fetch('https://api.themoviedb.org/3/movie/popular?api_key=60413a5f672cfb8007082bc512040ca2')
-  .then(res => res.json())
-  .then(banner =>  {
-    console.log(banner.results);
-  })
+    .then(res => res.json())
+    .then(banner => {
+      console.log(banner.results);
+    })
 }
 // created by Akobir Toshtemirov
